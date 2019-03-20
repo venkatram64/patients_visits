@@ -1,0 +1,45 @@
+CREATE SCHEMA `patients_repo` ;
+USE patients_repo;
+
+CREATE TABLE `illnes_table` (
+  `illness_type` VARCHAR(50) NOT NULL PRIMARY KEY,
+  `description` VARCHAR(50)
+) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+
+CREATE TABLE medicine_table (
+`id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`name` VARCHAR(50),
+`illness_type` VARCHAR(50),
+KEY `illness_type` (`illness_type`),
+CONSTRAINT `illness_type_ibfk_1` FOREIGN KEY (`illness_type`) REFERENCES `illnes_table` (`illness_type`)
+)ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('fever', 'fever');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('head ache', 'head ache');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('stomach ache', 'stomach ache');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('knee pain', 'knee pain');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('back pain', 'back pain');
+
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'fever');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'fever');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('dolo 650', 'fever');
+
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'head ache');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'head ache');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('dolo', 'head ache');
+
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'stomach ache');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'stomach ache');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('dolo', 'stomach ache');
+
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'knee pain');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'knee pain');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('dolo', 'knee pain');
+
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'back pain');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'back pain');
+INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('dolo', 'back pain');
+
+
+
