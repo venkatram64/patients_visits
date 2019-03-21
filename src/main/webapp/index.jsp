@@ -4,6 +4,6 @@
       <title>Patient hospital visit</title>
     </head>
     <body>
-     <c:redirect url="hospital_galaxy.jsp"/>
+     <c:redirect url="login.jsp"/>
     </body>
 </html>

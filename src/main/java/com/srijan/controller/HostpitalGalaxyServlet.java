@@ -3,8 +3,10 @@ package com.srijan.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.srijan.model.Doctor;
 import com.srijan.model.IllnessType;
 import com.srijan.model.Medicine;
+import com.srijan.service.DoctorService;
 import com.srijan.service.MedicineService;
 
 import javax.servlet.RequestDispatcher;
@@ -20,8 +22,10 @@ import java.util.List;
 public class HostpitalGalaxyServlet extends HttpServlet {
 
     private MedicineService medicineService;
+    private DoctorService doctorService;
     public void init() {
         medicineService = new MedicineService();
+        doctorService = new DoctorService();
     }
 
     @Override
@@ -34,21 +38,27 @@ public class HostpitalGalaxyServlet extends HttpServlet {
         String action = request.getServletPath();
         try {
             if (action.equalsIgnoreCase("/doctors_list")) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("doctorsList.jsp");
-                dispatcher.forward(request, response);
+                listDoctors(request, response);
             }else if(action.equalsIgnoreCase("/search_medicine")){
                 RequestDispatcher dispatcher = request.getRequestDispatcher("searchMedicine.jsp");
                 dispatcher.forward(request, response);
             }else if(action.equalsIgnoreCase("/search_medicine_type")){
                 listMedicine(request, response);
-               /* RequestDispatcher dispatcher = request.getRequestDispatcher("searchMedicine.jsp");
-                dispatcher.forward(request, response);*/
             }
         }catch (SQLException ex) {
             throw new ServletException(ex);
         } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         }
+    }
+
+    private void listDoctors(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException, ClassNotFoundException {
+
+        List<Doctor> listDoctors = doctorService.getAll();
+        request.setAttribute("listDoctors", listDoctors);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("hospital_galaxy.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void listMedicine(HttpServletRequest request, HttpServletResponse response)

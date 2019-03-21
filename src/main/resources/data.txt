@@ -1,6 +1,36 @@
 CREATE SCHEMA `patients_repo` ;
 USE patients_repo;
 
+CREATE TABLE `users` (
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(50) ,
+  `last_name` VARCHAR(50) ,
+  `email_id` VARCHAR(128),
+  `password` VARCHAR(128),
+  `created_date` timestamp default now(),
+  `modified_date` timestamp default now() on update now(),
+  `created_by` INT(11),
+  `role_id` INT(11),
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
+) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+INSERT INTO `patients_repo`.`users` (`first_name`, `last_name`, `email_id`, `password`, `created_by`, `role_id`) VALUES ('system', 'system', 'system@sagarsoft.in', 'system', '1', '1');
+
+CREATE TABLE `doctors` (
+  `doctor_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) ,
+  `email_id` VARCHAR(128),
+  `specialist` VARCHAR(128),
+  PRIMARY KEY (`doctor_id`),
+  UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`)
+) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+INSERT INTO `patients_repo`.`doctors` (`name`, `email_id`, `specialist`) VALUES ('Sudhakar Reddy', 'sudhakar@gmail.com', 'Childrens Specialist');
+INSERT INTO `patients_repo`.`doctors` (`name`, `email_id`, `specialist`) VALUES ('Shastry', 'shastry@gmail.com', 'Diabetaligist');
+INSERT INTO `patients_repo`.`doctors` (`name`, `email_id`, `specialist`) VALUES ('Ramulu', 'ramulu@gmail.com', 'Neuralgist');
+INSERT INTO `patients_repo`.`doctors` (`name`, `email_id`, `specialist`) VALUES ('Anjali', 'anjali@gmail.com', 'Eye specialist');
+
 CREATE TABLE `illnes_table` (
   `illness_type` VARCHAR(50) NOT NULL PRIMARY KEY,
   `description` VARCHAR(50)

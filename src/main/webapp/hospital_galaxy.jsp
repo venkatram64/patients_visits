@@ -3,38 +3,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/bootstrap.min.js"></script>
-    <title>Galaxy Hospital</title>
+     <link rel="stylesheet" href="./css/bootstrap.min.css">
+     <script src="./js/bootstrap.min.js"></script>
+     <script src="./js/jquery_3_2_1.js"></script>
+    <title>E-Hospital</title>
 </head>
 <body>
     <div class="container">
-    <center>
-        <h1>Galaxy Hospital</h1>
-        <h2>
-            <a href="/search_medicine">Search Medicens</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/doctors_list">List Doctors</a>
-
-        </h2>
-    </center>
-    <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><span><h2>List of Doctors</h2></span></caption>
+        <table class="table">
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Speciality</th>
+                <td><h1>E-Hospital</h1></td>
+                <td>
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/logout">Logout</a>
+                    </h3>
+                </td>
             </tr>
-            <c:forEach var="doctor" items="${listDoctors}">
-                <tr>
-                    <td><c:out value="${doctor.id}" /></td>
-                    <td><c:out value="${doctor.name}" /></td>
-                    <td><c:out value="${doctor.speciality}" /></td>
-                </tr>
-            </c:forEach>
         </table>
-    </div>
+        <center>
+
+            <h2>
+                <a href="/search_medicine">Search Medicins</a>
+            </h2>
+        </center>
+        <div align="center">
+            <table class="table table-bordered table-striped table-bordered table-hover">
+                <caption><span><h2>List of Doctors</h2></span></caption>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Speciality</th>
+                </tr>
+                <c:forEach var="doctor" items="${listDoctors}">
+                    <tr>
+                        <td><c:out value="${doctor.name}" /></td>
+                         <td><c:out value="${doctor.email}" /></td>
+                        <td><c:out value="${doctor.specialist}" /></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 </body>
 </html>
