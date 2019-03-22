@@ -27,10 +27,10 @@
                     <div class="form-group">
                       <button class="btn btn-primary btn-lg btn-block">Login</button>
                     </div>
+                    <div class="form-group">
+                      <a href="/registration_form" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Registration</a>
+                    </div>
                   </form>
-                  <div class="form-group">
-                    <a href="/registration_form" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Registration</a>
-                  </div>
               </div>
           </div>
           </div>
