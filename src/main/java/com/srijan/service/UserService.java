@@ -27,7 +27,7 @@ public class UserService implements Serializable{
         	int id = resultSet.getInt("user_id");
             String firstName = resultSet.getString("first_name");
             String lastName = resultSet.getString("last_name");
-            String emialId = resultSet.getString("email_id");
+            emailId = resultSet.getString("email_id");
             String password = resultSet.getString("password");
 
             user = new User(id, firstName, lastName, emailId, password);

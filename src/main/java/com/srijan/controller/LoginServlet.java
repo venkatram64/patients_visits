@@ -88,14 +88,23 @@ public class LoginServlet extends HttpServlet {
 		String lastName = req.getParameter("lastName");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		User user = new User(firstName, lastName, email, password);
-		userService.addUser(user);
-		resp.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println("User is registered, please login.");
-		RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
-		dispatcher.include(req, resp);
-
+		//check email in db, if it is not there, then create it, else inform to the user
+		User user = userService.getUserByEmailId(email);
+		if (user != null){
+			resp.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("User is already registered with same email id.");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+			dispatcher.include(req, resp);
+		}else {
+			user = new User(firstName, lastName, email, password);
+			userService.addUser(user);
+			resp.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("User is registered, please login.");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+			dispatcher.include(req, resp);
+		}
 	}
 
 	@Override
