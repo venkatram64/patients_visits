@@ -31,10 +31,6 @@
     				  <label for="password">Password:</label>
     				  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
     				</div>
-    				<div class="form-group">
-    				  <label for="confirmPassword">Confirm Password:</label>
-    				  <input type="confirmPassword" class="form-control" id="cpwd" placeholder="Enter password" name="confirmPassword">
-    				</div>
     				<button class="btn btn-primary btn-lg btn-block">Submit</button>
     				<a href="/cancel_registration" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Cancel</a>
     			  </form>

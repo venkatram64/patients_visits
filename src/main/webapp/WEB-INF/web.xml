@@ -54,6 +54,11 @@
 
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/cancel_registration</url-pattern>
   </servlet-mapping>
 

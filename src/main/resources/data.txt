@@ -8,14 +8,12 @@ CREATE TABLE `users` (
   `email_id` VARCHAR(128),
   `password` VARCHAR(128),
   `created_date` timestamp default now(),
-  `modified_date` timestamp default now() on update now(),
-  `created_by` INT(11),
-  `role_id` INT(11),
+  `modified_date` timestamp default now() on update now()
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)
 ) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
 
-INSERT INTO `patients_repo`.`users` (`first_name`, `last_name`, `email_id`, `password`, `created_by`, `role_id`) VALUES ('system', 'system', 'system@sagarsoft.in', 'system', '1', '1');
+INSERT INTO `patients_repo`.`users` (`first_name`, `last_name`, `email_id`, `password`, `created_by`, `role_id`) VALUES ('system', 'system', 'system@sagarsoft.in', 'system');
 
 CREATE TABLE `doctors` (
   `doctor_id` INT(11) NOT NULL AUTO_INCREMENT,

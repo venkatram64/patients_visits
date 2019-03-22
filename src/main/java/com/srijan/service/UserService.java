@@ -29,9 +29,8 @@ public class UserService implements Serializable{
             String lastName = resultSet.getString("last_name");
             String emialId = resultSet.getString("email_id");
             String password = resultSet.getString("password");
-            int roleId = resultSet.getInt("role_id");
 
-            user = new User(id, firstName, lastName, emailId, password,roleId);
+            user = new User(id, firstName, lastName, emailId, password);
         }
 
         resultSet.close();
@@ -39,6 +38,23 @@ public class UserService implements Serializable{
         connection.close();
 
         return user;
+    }
+
+    public boolean addUser(User user) throws SQLException, ClassNotFoundException{
+
+        String sql = "INSERT INTO users (first_name, last_name, email_id, password) VALUES (?, ?, ?, ?)";
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, user.getFirstName());
+        statement.setString(2, user.getLastName());
+        statement.setString(3, user.getEmailId());
+        statement.setString(4, user.getPassword());
+
+        boolean rowInserted = statement.executeUpdate() > 0;
+        statement.close();
+        connection.close();
+        return rowInserted;
     }
 
 }

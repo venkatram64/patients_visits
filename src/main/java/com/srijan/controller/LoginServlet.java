@@ -68,12 +68,33 @@ public class LoginServlet extends HttpServlet {
 		}else if(action.equals("/registration_form")){
 			RequestDispatcher dispatcher = req.getRequestDispatcher("registration.jsp");
 			dispatcher.include(req, resp);
-		}
-
-		else if(action.equals("/cancel_registration")){
+		}else if(action.equals("/registration")){
+			try {
+				register(req, resp);
+			}catch (ClassNotFoundException | SQLException e) {
+				throw new ServletException(e);
+			}
+		}else if(action.equals("/cancel_registration")){
 			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
 			dispatcher.include(req, resp);
 		}
+
+	}
+
+	public void register(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException, ClassNotFoundException{
+
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		User user = new User(firstName, lastName, email, password);
+		userService.addUser(user);
+		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("User is registered, please login.");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+		dispatcher.include(req, resp);
 
 	}
 
@@ -93,7 +114,6 @@ public class LoginServlet extends HttpServlet {
 			session.invalidate();
 		}
 		response.sendRedirect("index.jsp");
-
 		/*
 		 * RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		 * dispatcher.forward(request, response);
