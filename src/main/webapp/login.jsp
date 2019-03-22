@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>NER Application</title>
+    <title>E-Hospital Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
@@ -28,6 +28,9 @@
                       <button class="btn btn-primary btn-lg btn-block">Login</button>
                     </div>
                   </form>
+                  <div class="form-group">
+                    <a href="/registration_form" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Registration</a>
+                  </div>
               </div>
           </div>
           </div>

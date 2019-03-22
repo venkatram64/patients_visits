@@ -65,6 +65,14 @@ public class LoginServlet extends HttpServlet {
 			}catch (ClassNotFoundException | SQLException e) {
 				throw new ServletException(e);
 			}
+		}else if(action.equals("/registration_form")){
+			RequestDispatcher dispatcher = req.getRequestDispatcher("registration.jsp");
+			dispatcher.include(req, resp);
+		}
+
+		else if(action.equals("/cancel_registration")){
+			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+			dispatcher.include(req, resp);
 		}
 
 	}
