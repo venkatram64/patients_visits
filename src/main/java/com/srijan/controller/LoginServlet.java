@@ -84,23 +84,29 @@ public class LoginServlet extends HttpServlet {
 	public void register(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException, SQLException, ClassNotFoundException{
 
+		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = resp.getWriter();
 		String firstName = req.getParameter("firstName");
 		String lastName = req.getParameter("lastName");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
+		if(firstName.trim().equals("") || lastName.trim().equals("") ||
+				email.trim().equals("") || password.trim().equals("")){
+			out.println("First name or Last name or eamil or password should not be empty.");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("registration.jsp");
+			dispatcher.include(req, resp);
+			return;
+		}
 		//check email in db, if it is not there, then create it, else inform to the user
 		User user = userService.getUserByEmailId(email);
 		if (user != null){
-			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = resp.getWriter();
+
 			out.println("User is already registered with same email id.");
 			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
 			dispatcher.include(req, resp);
 		}else {
 			user = new User(firstName, lastName, email, password);
 			userService.addUser(user);
-			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = resp.getWriter();
 			out.println("User is registered, please login.");
 			RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
 			dispatcher.include(req, resp);
