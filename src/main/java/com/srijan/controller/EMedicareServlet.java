@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-public class HostpitalGalaxyServlet extends HttpServlet {
+public class EMedicareServlet extends HttpServlet {
 
     private MedicineService medicineService;
     private DoctorService doctorService;

@@ -5,8 +5,10 @@ public enum IllnessType {
     FEVER("fever"),
     HEAD_ACHE("head ache"),
     STOMACH_ACHE("Stomach ache"),
-    KNEE_PAIN("Knee pain"),
-    BACK_PAIN("Back pain");
+    KNEE_PAIN("body pain"),
+    BACK_PAIN("Back pain"),
+    DIAIRHOEA("diairhoea"),
+    COUGH("Cough");
 
     private String type;
 

@@ -28,7 +28,8 @@ public class MedicineService implements Serializable {
         while (resultSet.next()) {
             String illnessType_ = resultSet.getString("illness_type");
             String name = resultSet.getString("name");
-            Medicine illness = new Medicine(illnessType_, name);
+            String prevention = resultSet.getString("prevention");
+            Medicine illness = new Medicine(illnessType_, name, prevention);
             list.add(illness);
         }
 

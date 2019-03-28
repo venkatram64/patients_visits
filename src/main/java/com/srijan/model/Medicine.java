@@ -6,12 +6,14 @@ public class Medicine implements Serializable {
 
     private String illnessType;
     private String medicine;
+    private String prevention;
 
     public Medicine(){}
 
-    public Medicine(String illnessType, String medicine) {
+    public Medicine(String illnessType, String medicine, String prevention) {
         this.illnessType = illnessType;
         this.medicine = medicine;
+        this.prevention = prevention;
     }
 
     public String getIllnessType() {
@@ -30,6 +32,12 @@ public class Medicine implements Serializable {
         this.medicine = medicine;
     }
 
+    public String getPrevention() {
+        return prevention;
+    }
 
+    public void setPrevention(String prevention) {
+        this.prevention = prevention;
+    }
 }
 

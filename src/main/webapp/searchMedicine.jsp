@@ -21,7 +21,7 @@
 
                         $('#dynatablesearch').empty();
                         $.each(jsonResponse, function(index, value){
-                            var row = "<tr>" + "<td>" + value.illnessType + "</td>"+ "<td>" + value.medicine +"</td>"
+                            var row = "<tr>" + "<td>" + value.illnessType + "</td>"+ "<td>" + value.medicine +"</td>"+"<td>" + value.prevention +"</td></tr>";
                             $('#dynatablesearch').append(row);
                         });
 
@@ -34,7 +34,7 @@
         <div class="container">
             <table class="table">
                 <tr>
-                    <td><h1>E-Hospital</h1></td>
+                    <td><h1>E-Medcare</h1></td>
                     <td>
                         <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="/logout">Logout</a>
@@ -61,8 +61,10 @@
                             <option value="FEVER">Fever</option>
                             <option value="HEAD_ACHE">Head ache</option>
                             <option value="STOMACH_ACHE">Stomach ache</option>
-                            <option value="KNEE_PAIN">Knee pain</option>
+                            <option value="KNEE_PAIN">Body pain</option>
                             <option value="BACK_PAIN">Back pain</option>
+                            <option value="DIAIRHOEA">Diairhoea</option>
+                            <option value="COUGH">Cough</option>
                         </select>
                     </div>
                     <h3>Output:</h3>
@@ -75,6 +77,7 @@
                                     <tr>
                                         <th>Illness Type</th>
                                         <th>Medicine</th>
+                                        <th>Prevention</th>
                                     </tr>
                                 </thead>
                                 <tbody id="dynatablesearch"></tbody>

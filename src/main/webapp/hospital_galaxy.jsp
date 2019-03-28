@@ -6,13 +6,13 @@
      <link rel="stylesheet" href="./css/bootstrap.min.css">
      <script src="./js/bootstrap.min.js"></script>
      <script src="./js/jquery_3_2_1.js"></script>
-    <title>E-Hospital</title>
+    <title>E-Medcare</title>
 </head>
 <body>
     <div class="container">
         <table class="table">
             <tr>
-                <td><h1>E-Hospital</h1></td>
+                <td><h1>E-Medcare</h1></td>
                 <td>
                     <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="/logout">Logout</a>
@@ -23,7 +23,7 @@
         <center>
 
             <h2>
-                <a href="/search_medicine">Search Medicins</a>
+                <a href="/search_medicine">Search Medicines</a>
             </h2>
         </center>
         <div align="center">

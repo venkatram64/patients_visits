@@ -39,15 +39,14 @@ CREATE TABLE medicine_table (
 `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `name` VARCHAR(50),
 `illness_type` VARCHAR(50),
-KEY `illness_type` (`illness_type`),
-CONSTRAINT `illness_type_ibfk_1` FOREIGN KEY (`illness_type`) REFERENCES `illnes_table` (`illness_type`)
+`prevention`  VARCHAR(100),
 )ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
 
-INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('fever', 'fever');
-INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('head ache', 'head ache');
-INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('stomach ache', 'stomach ache');
-INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('knee pain', 'knee pain');
-INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`) VALUES ('back pain', 'back pain');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`,`prevention`) VALUES ('fever', 'fever','Be vigilant about hand washing in a bome');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`,`prevention`) VALUES ('head ache', 'head ache','Try stress reduction techniques such as yoga, reduce caffeine');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`,`prevention`) VALUES ('stomach ache', 'stomach ache', 'Avoid junk food, drink plenty of water');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`,`prevention`) VALUES ('knee pain', 'knee pain','Excercise regularly and healthy well balanced diet');
+INSERT INTO `patients_repo`.`illnes_table` (`illness_type`, `description`,`prevention`) VALUES ('back pain', 'back pain','Sitting in proper position');
 
 INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('crocine', 'fever');
 INSERT INTO `patients_repo`.`medicine_table` (`name`, `illness_type`) VALUES ('paracetamol', 'fever');

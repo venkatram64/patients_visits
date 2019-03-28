@@ -9,7 +9,7 @@
 
   <servlet>
     <servlet-name>HostpitalGalaxy</servlet-name>
-    <servlet-class>com.srijan.controller.HostpitalGalaxyServlet</servlet-class>
+    <servlet-class>com.srijan.controller.EMedicareServlet</servlet-class>
   </servlet>
 
   <servlet>
